@@ -21,23 +21,20 @@ function compile(options) {
   });
 
   const filePaths = glob.sync(options.input)
-  const outputs = filePaths.map( (filePath) => {
+  return filePaths.map((filePath) => {
     const content = fs.readFileSync(filePath, options.encoding || 'utf-8');
     const fullFileName = path.basename(filePath);
     return {
       content: compiler.convertPo([content]),
       fileName: path.basename(filePath, path.extname(fullFileName)) + '.' + options.format
     };
-  } );
-
-  return outputs;
+  });
 }
 
 AngularGetTextPlugin.prototype.apply = function(compiler) {
   const options = this;
 
-  compiler.plugin('emit', (compilation, done) => {
-
+  compiler.hooks.emit.tap({name: 'AngularGetTextPlugin'}, (compilation) => {
     if (options.compileTranslations) {
       const results = compile(options.compileTranslations);
       results.forEach( (result) => {
@@ -64,8 +61,6 @@ AngularGetTextPlugin.prototype.apply = function(compiler) {
       });
       fs.writeFileSync(options.extractStrings.destination, extractor.toString())
     }
-
-    done();
   });
 };
 
