@@ -7,7 +7,7 @@ This utility can:
 
 # Installation
 ```bash
-$ npm -D i angular-gettext-plugin
+$ npm -D i angular-gettext-plugin-wp5
 ```
 
 # Example of usage

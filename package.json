@@ -1,14 +1,14 @@
 {
-  "name": "angular-gettext-plugin",
-  "version": "1.0.1",
-  "description": "Full Webpack plugin for angular-gettext based on the angular-gettext-cli utility. Inteded for both compilation and extraction.",
+  "name": "angular-gettext-plugin-wp5",
+  "version": "1.1.0",
+  "description": "Full Webpack plugin for angular-gettext based on the angular-gettext-cli utility. Intended for both compilation and extraction.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/augusto-altman/angular-gettext-plugin.git"
+    "url": "git+https://github.com/ciarancourtney/angular-gettext-plugin.git"
   },
   "keywords": [
     "webpack",
@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/augusto-altman/angular-gettext-plugin#readme",
   "dependencies": {
-    "angular-gettext-tools": "2.3.6",
-    "glob": "7.1.2"
+    "angular-gettext-tools": "<3",
+    "glob": "^7.1.6"
   }
 }
